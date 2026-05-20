@@ -3,16 +3,19 @@ id: 004-firestore-structure
 unit: 004-firestore-structure
 intent: 001-project-setup
 type: simple-construction-bolt
-status: planned
+status: completed
 stories:
   - 001-define-schema
   - 002-security-rules
   - 003-indexes
 created: 2026-05-20T07:15:00Z
-started: null
-completed: null
-current_stage: null
-stages_completed: []
+started: 2026-05-20T16:20:00Z
+completed: 2026-05-20T16:45:00Z
+current_stage: test
+stages_completed:
+  - plan
+  - implement
+  - test
 requires_bolts:
   - 001-flutter-project-init
   - 002-firebase-setup
@@ -44,9 +47,9 @@ Establish stable data layer with correct access control for core collections.
 **Definition**: `.specsmd/aidlc/templates/construction/bolt-types/simple-construction-bolt.md`
 
 ## Stages
-- [ ] **1. Plan**: Pending → `implementation-plan.md`
-- [ ] **2. Implement**: Pending → schema/rules/indexes + `implementation-walkthrough.md`
-- [ ] **3. Test**: Pending → rules validation + `test-walkthrough.md`
+- [x] **1. Plan**: Completed → `implementation-plan.md`
+- [x] **2. Implement**: Completed → schema/rules/indexes + `implementation-walkthrough.md`
+- [x] **3. Test**: Completed → rules validation + `test-walkthrough.md`
 
 ## Dependencies
 ### Requires
@@ -57,6 +60,6 @@ Establish stable data layer with correct access control for core collections.
 - None
 
 ## Success Criteria
-- [ ] All 9 collections scaffolded/documented
-- [ ] Security rules prevent cross-user access
-- [ ] Indexes defined for common queries
+- [x] All 9 collections scaffolded/documented
+- [x] Security rules prevent cross-user access
+- [x] Indexes defined for common queries
