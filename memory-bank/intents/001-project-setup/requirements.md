@@ -60,7 +60,17 @@ Bootstrap fAIth **mobile** app in `fAIth_mobile/` (Flutter + GetX) + Firebase (A
 - **Acceptance Criteria**:
   - Collection `users/{uid}` created/updated on login.
   - User doc contains at least: `uid`, `name`, `photoUrl`, `favoriteVerse`, `language`, `darkMode`, `dailyMessages`, `usedMessages`.
-  - Collections scaffolded (created/seeded/docs): `chat_history`, `prayers` (others may be added later).
+  - Collections scaffolded (created/seeded/docs):
+    - `users`
+    - `daily_devotionals`
+    - `featured_studies`
+    - `reading_plans`
+    - `topics`
+    - `saved_devotionals`
+    - `favorite_verses`
+    - `prayers`
+    - `chat_history`
+  - User quota fields present/managed: `dailyMessages` default 25, `usedMessages` default 0.
 - **Priority**: Must
 
 ### FR-7: Firebase Functions scaffold (Gemini gateway placeholder)
@@ -98,4 +108,8 @@ Bootstrap fAIth **mobile** app in `fAIth_mobile/` (Flutter + GetX) + Firebase (A
 ## Intent-Specific Constraints
 - **Mobile focus**: implement in `fAIth_mobile/` (web version exists in `fAIth_web/` as reference only).
 - **Routing/UI reference**: follow information architecture + naming patterns from `fAIth_web/`, adapted to Flutter.
+- **AI positioning**: AI is study/devotional/reflection helper; not pastor replacement; no divine/theological authority claims.
+- **Tone/UX**: calm, warm, modern, elegant; avoid aggressive religious behavior, controversial theology, fear-based/manipulative language.
+- **AI security**: Gemini API never called directly from Flutter; Functions-only proxy.
+- **UI design cues**: rounded corners, soft gradients, glassmorphism accents, clean typography, premium spacing, minimal clutter.
 

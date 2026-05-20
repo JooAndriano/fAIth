@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../controllers/auth_controller.dart';
 import '../../routes/app_routes.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -38,9 +40,13 @@ class LoginPage extends StatelessWidget {
               ),
               const SizedBox(height: 48),
               ElevatedButton.icon(
-                onPressed: () {
-                  // TODO: Implement Google Sign-In
-                  Get.offNamed(AppRoutes.shell);
+                onPressed: () async {
+                  final auth = Get.find<AuthController>();
+                  await auth.signInWithGoogle();
+
+                  if (auth.isAuthenticated) {
+                    Get.offNamed(AppRoutes.shell);
+                  }
                 },
                 icon: const Icon(Icons.login),
                 label: const Text('Sign in with Google'),

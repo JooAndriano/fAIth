@@ -9,6 +9,7 @@
 - Use `dart format .` before PR/commit
 - Indent: 2 spaces
 - Max line length: 100
+- Setelah membuat/memodifikasi code tampilan atau function, lakukan hot reload untuk memastikan code tidak crash/error
 
 ## Naming
 - Widgets: `PascalCase`
@@ -22,6 +23,9 @@
 ## Testing
 - Place all test files in `test/`
 - Name: `{target}_test.dart`
+
+## Version Control
+- Commit secara atomic: satu perubahan logis per commit, pesan jelas dan terfokus.
 
 ---
 

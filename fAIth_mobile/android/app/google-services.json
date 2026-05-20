@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "985445046186",
+    "project_id": "faith-jivottama",
+    "storage_bucket": "faith-jivottama.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:985445046186:android:2fe0281c2c840483ebbdd3",
+        "android_client_info": {
+          "package_name": "com.faith.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "985445046186-8dpa4jap88tdd4ec7smghdieqm9pcurb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.faith.app",
+            "certificate_hash": "885c5a45e53784c330046b868c75c389054ca26a"
+          }
+        },
+        {
+          "client_id": "985445046186-otj4ucs7147d13uom2rd1d1nrlmsn059.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAqN1n0dL1QDgwu3-DJ2aCtfyyNektgGY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "985445046186-otj4ucs7147d13uom2rd1d1nrlmsn059.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "985445046186-vfk32kvf9jjhlqg5icag0ibhf8fjfelc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.faithMobile"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

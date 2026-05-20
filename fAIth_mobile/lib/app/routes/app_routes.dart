@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+
+import 'auth_middleware.dart';
 import '../pages/splash/splash_page.dart';
 import '../pages/auth/login_page.dart';
 import '../pages/shell/shell_page.dart';
@@ -30,26 +32,32 @@ class AppRoutes {
     GetPage(
       name: shell,
       page: () => const ShellPage(),
+      middlewares: [AuthMiddleware()],
     ),
     GetPage(
       name: home,
       page: () => const HomePage(),
+      middlewares: [AuthMiddleware()],
     ),
     GetPage(
       name: chat,
       page: () => const ChatPage(),
+      middlewares: [AuthMiddleware()],
     ),
     GetPage(
       name: study,
       page: () => const StudyPage(),
+      middlewares: [AuthMiddleware()],
     ),
     GetPage(
       name: devotional,
       page: () => const DevotionalPage(),
+      middlewares: [AuthMiddleware()],
     ),
     GetPage(
       name: profile,
       page: () => const ProfilePage(),
+      middlewares: [AuthMiddleware()],
     ),
   ];
 }

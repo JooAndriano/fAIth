@@ -1,4 +1,5 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.faith.app">
     <application
         android:label="faith_mobile"
         android:name="${applicationName}"
