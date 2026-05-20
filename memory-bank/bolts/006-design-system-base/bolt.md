@@ -3,16 +3,16 @@ id: 006-design-system-base
 unit: 006-design-system-base
 intent: 001-project-setup
 type: simple-construction-bolt
-status: planned
+status: completed
 stories:
   - 001-theme
   - 002-typography
   - 003-core-widgets
 created: 2026-05-20T07:15:00Z
-started: null
-completed: null
-current_stage: null
-stages_completed: []
+started: 2026-05-20T16:22:53Z
+completed: 2026-05-20T16:22:53Z
+current_stage: test
+stages_completed: [plan, implement]
 requires_bolts:
   - 001-flutter-project-init
 enables_bolts: []

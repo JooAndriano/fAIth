@@ -55,8 +55,10 @@ class ShellPage extends StatelessWidget {
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
             BottomNavigationBarItem(icon: Icon(Icons.chat), label: 'Chat'),
-            BottomNavigationBarItem(icon: Icon(Icons.menu_book), label: 'Study'),
-            BottomNavigationBarItem(icon: Icon(Icons.wb_sunny), label: 'Devotional'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.menu_book), label: 'Study'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.wb_sunny), label: 'Devotional'),
             BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
           ],
         ),

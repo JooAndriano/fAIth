@@ -17,11 +17,18 @@ class AppRoutes {
   static const String devotional = '/devotional';
   static const String profile = '/profile';
 
-  static const String notFound = '/not-found';
+  static const String _notFound = '/not-found';
+  static String get notFound => _notFound;
 
-  static final List<String> shellTabs = [home, chat, study, devotional, profile];
+  static final List<String> shellTabs = [
+    home,
+    chat,
+    study,
+    devotional,
+    profile
+  ];
 
-  static final List<GetPage> pages = [
+  static final List<GetPage> _pages = [
     GetPage(name: splash, page: () => const SplashPage()),
     GetPage(name: login, page: () => const LoginPage()),
 
@@ -60,6 +67,8 @@ class AppRoutes {
     ),
 
     // Unknown route fallback
-    GetPage(name: notFound, page: () => const NotFoundPage()),
+    GetPage(name: _notFound, page: () => const NotFoundPage()),
   ];
+
+  static List<GetPage> get pages => _pages;
 }

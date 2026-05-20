@@ -1,125 +1,81 @@
 import 'package:flutter/material.dart';
 
-class AppTheme {
-  // Color tokens
-  static const Color primaryGold = Color(0xFFD4A574);
-  static const Color sunsetAccent = Color(0xFFC97B63);
-  static const Color navy = Color(0xFF111827);
-  static const Color background = Color(0xFFF8F6F2);
-  static const Color white = Color(0xFFFFFFFF);
-  static const Color grey = Color(0xFF9CA3AF);
-  static const Color darkGrey = Color(0xFF4B5563);
+import 'app_colors.dart';
+import 'app_radius.dart';
+import 'app_text_styles.dart';
 
+class AppTheme {
   static ThemeData get lightTheme {
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.light,
-      primaryColor: primaryGold,
-      scaffoldBackgroundColor: background,
+      scaffoldBackgroundColor: AppColors.background,
       colorScheme: const ColorScheme.light(
-        primary: primaryGold,
-        secondary: sunsetAccent,
-        surface: white,
-        background: background,
-        error: Colors.red,
-        onPrimary: white,
-        onSecondary: white,
-        onSurface: navy,
-        onBackground: navy,
-        onError: white,
+        primary: AppColors.primaryGold,
+        secondary: AppColors.sunsetAccent,
+        surface: AppColors.surface,
+        error: AppColors.danger,
+        onPrimary: AppColors.surface,
+        onSecondary: AppColors.surface,
+        onSurface: AppColors.navy,
+        onError: AppColors.surface,
       ),
       appBarTheme: const AppBarTheme(
-        backgroundColor: background,
-        foregroundColor: navy,
+        backgroundColor: AppColors.background,
+        foregroundColor: AppColors.navy,
         elevation: 0,
         centerTitle: true,
       ),
+      dividerColor: AppColors.divider,
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-        backgroundColor: white,
-        selectedItemColor: primaryGold,
-        unselectedItemColor: grey,
+        backgroundColor: AppColors.surface,
+        selectedItemColor: AppColors.primaryGold,
+        unselectedItemColor: AppColors.grey,
         type: BottomNavigationBarType.fixed,
         elevation: 8,
       ),
       textTheme: const TextTheme(
-        displayLarge: TextStyle(
-          fontSize: 32,
-          fontWeight: FontWeight.bold,
-          color: navy,
-        ),
-        displayMedium: TextStyle(
-          fontSize: 28,
-          fontWeight: FontWeight.bold,
-          color: navy,
-        ),
-        displaySmall: TextStyle(
-          fontSize: 24,
-          fontWeight: FontWeight.bold,
-          color: navy,
-        ),
-        headlineMedium: TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.w600,
-          color: navy,
-        ),
-        headlineSmall: TextStyle(
-          fontSize: 18,
-          fontWeight: FontWeight.w600,
-          color: navy,
-        ),
-        titleLarge: TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.w600,
-          color: navy,
-        ),
-        bodyLarge: TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.normal,
-          color: navy,
-        ),
-        bodyMedium: TextStyle(
-          fontSize: 14,
-          fontWeight: FontWeight.normal,
-          color: navy,
-        ),
-        bodySmall: TextStyle(
-          fontSize: 12,
-          fontWeight: FontWeight.normal,
-          color: grey,
-        ),
+        displayLarge: AppTextStyles.displayLarge,
+        displayMedium: AppTextStyles.displayMedium,
+        displaySmall: AppTextStyles.displaySmall,
+        headlineMedium: AppTextStyles.headlineMedium,
+        headlineSmall: AppTextStyles.headlineSmall,
+        titleLarge: AppTextStyles.titleLarge,
+        bodyLarge: AppTextStyles.bodyLarge,
+        bodyMedium: AppTextStyles.bodyMedium,
+        bodySmall: AppTextStyles.bodySmall,
+        labelLarge: AppTextStyles.labelLarge,
+        labelMedium: AppTextStyles.labelMedium,
       ),
-      cardTheme: CardThemeData(
-        color: white,
+      cardTheme: const CardThemeData(
+        color: AppColors.surface,
         elevation: 2,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          backgroundColor: primaryGold,
-          foregroundColor: white,
+          backgroundColor: AppColors.primaryGold,
+          foregroundColor: AppColors.surface,
           elevation: 0,
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(AppRadius.sm),
           ),
         ),
       ),
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
-        fillColor: white,
+        fillColor: AppColors.surface,
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8),
-          borderSide: const BorderSide(color: grey),
+          borderRadius: BorderRadius.circular(AppRadius.sm),
+          borderSide: const BorderSide(color: AppColors.grey),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8),
-          borderSide: const BorderSide(color: grey),
+          borderRadius: BorderRadius.circular(AppRadius.sm),
+          borderSide: const BorderSide(color: AppColors.grey),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8),
-          borderSide: const BorderSide(color: primaryGold, width: 2),
+          borderRadius: BorderRadius.circular(AppRadius.sm),
+          borderSide: const BorderSide(color: AppColors.primaryGold, width: 2),
         ),
       ),
     );
@@ -129,19 +85,16 @@ class AppTheme {
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.dark,
-      primaryColor: primaryGold,
-      scaffoldBackgroundColor: navy,
+      scaffoldBackgroundColor: AppColors.navy,
       colorScheme: const ColorScheme.dark(
-        primary: primaryGold,
-        secondary: sunsetAccent,
+        primary: AppColors.primaryGold,
+        secondary: AppColors.sunsetAccent,
         surface: Color(0xFF1F2937),
-        background: navy,
-        error: Colors.red,
-        onPrimary: navy,
-        onSecondary: white,
-        onSurface: white,
-        onBackground: white,
-        onError: white,
+        error: AppColors.danger,
+        onPrimary: AppColors.navy,
+        onSecondary: AppColors.surface,
+        onSurface: AppColors.surface,
+        onError: AppColors.surface,
       ),
     );
   }
