@@ -6,6 +6,7 @@ import 'firebase_options.dart';
 import 'app/bindings/app_bindings.dart';
 import 'app/routes/app_routes.dart';
 import 'app/theme/app_theme.dart';
+import 'app/pages/not_found/not_found_page.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,6 +29,10 @@ class MyApp extends StatelessWidget {
       initialBinding: AppBindings(),
       initialRoute: AppRoutes.splash,
       getPages: AppRoutes.pages,
+      unknownRoute: GetPage(
+        name: AppRoutes.notFound,
+        page: () => const NotFoundPage(),
+      ),
       debugShowCheckedModeBanner: false,
     );
   }
