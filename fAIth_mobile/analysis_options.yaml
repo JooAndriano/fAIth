@@ -1,0 +1,6 @@
+include: package:flutter_lints/flutter.yaml
+
+linter:
+  rules:
+    # Match project coding standard (100 chars)
+    lines_longer_than_80_chars: false

@@ -1,0 +1,35 @@
+# Project Configuration
+# fAIth - Personal AI Spiritual Companion
+
+project_type: "mobile-app"
+initialized_at: "2026-05-20T06:59:30Z"
+project_name: "fAIth"
+description: "Personal AI Spiritual Companion - Flutter mobile app with Firebase backend"
+tech_stack:
+  frontend: "Flutter"
+  state_management: "GetX"
+  backend: "Firebase Functions"
+  database: "Firestore"
+  authentication: "Firebase Google Sign-In"
+  ai_model: "Gemini Flash"
+  storage: "Firebase Storage"
+  notifications: "Firebase Cloud Messaging"
+design_language:
+  primary_color: "#D4A574"
+  accent_color: "#C97B63"
+  dark_color: "#111827"
+  background_color: "#F8F6F2"
+  style: "elegant, calm, warm, spiritual, modern"
+target_platforms:
+  - "Android"
+  - "iOS"
+development_phases:
+  - "Phase 1: Project Setup"
+  - "Phase 2: Static UI Development"
+  - "Phase 3: Firebase Integration"
+  - "Phase 4: AI Integration"
+  - "Phase 5: Personalized AI Memory"
+  - "Phase 6: Notifications & Retention"
+  - "Phase 7: Optimization & Polish"
+existing_web_version: "fAIth_web"
+mobile_focus: "fAIth_mobile"

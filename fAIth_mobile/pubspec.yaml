@@ -1,0 +1,28 @@
+name: faith_mobile
+description: "fAIth - Personal AI Spiritual Companion mobile app"
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  get: ^4.6.5
+  firebase_core: ^2.24.0
+  firebase_auth: ^4.14.0
+  cloud_firestore: ^4.14.0
+  firebase_storage: ^11.5.0
+  firebase_messaging: ^14.7.0
+  google_sign_in: ^6.1.5
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
