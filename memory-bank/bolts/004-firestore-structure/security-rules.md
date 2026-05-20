@@ -1,0 +1,72 @@
+# Firestore Security Rules (v1)
+
+## Policy
+- Default deny.
+- Private collections: auth required + owner-only.
+- Public content: read allowed; client writes denied.
+
+```firestore
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isAuthed() { return request.auth != null; }
+    function uid() { return request.auth.uid; }
+    function isOwnerField() { return request.resource.data.uid == uid(); }
+    function isOwnerResource() { return resource.data.uid == uid(); }
+
+    // --- Private ---
+
+    match /users/{userId} {
+      allow read: if isAuthed() && userId == uid();
+      allow create: if isAuthed() && userId == uid() && isOwnerField();
+      allow update: if isAuthed() && userId == uid() && isOwnerField();
+      allow delete: if false;
+    }
+
+    match /prayers/{prayerId} {
+      allow read: if isAuthed() && isOwnerResource();
+      allow create: if isAuthed() && isOwnerField();
+      allow update: if isAuthed() && isOwnerResource() && isOwnerField();
+      allow delete: if isAuthed() && isOwnerResource();
+    }
+
+    match /chat_history/{chatId} {
+      allow read: if isAuthed() && isOwnerResource();
+      allow create: if isAuthed() && isOwnerField();
+      allow update: if isAuthed() && isOwnerResource() && isOwnerField();
+      allow delete: if isAuthed() && isOwnerResource();
+    }
+
+    match /saved_devotionals/{savedId} {
+      allow read: if isAuthed() && isOwnerResource();
+      allow create: if isAuthed() && isOwnerField();
+      allow update: if isAuthed() && isOwnerResource() && isOwnerField();
+      allow delete: if isAuthed() && isOwnerResource();
+    }
+
+    match /favorite_verses/{favId} {
+      allow read: if isAuthed() && isOwnerResource();
+      allow create: if isAuthed() && isOwnerField();
+      allow update: if isAuthed() && isOwnerResource() && isOwnerField();
+      allow delete: if isAuthed() && isOwnerResource();
+    }
+
+    // --- Public read-only content ---
+
+    match /daily_devotionals/{id} { allow read: if true; allow write: if false; }
+    match /featured_studies/{id} { allow read: if true; allow write: if false; }
+    match /reading_plans/{id} { allow read: if true; allow write: if false; }
+    match /topics/{id} { allow read: if true; allow write: if false; }
+
+    // Default deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
+```
+
+## Notes
+- `users/{uid}`: doc id must equal auth uid.
+- Private collections require `uid` field; queries must filter by `uid` for predictable results.
