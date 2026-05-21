@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
       title: 'fAIth',
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.system,
       debugShowCheckedModeBanner: false,
     );
   }

@@ -1,74 +1,92 @@
 import 'package:flutter/material.dart';
 
-import 'app_colors.dart';
-
 /// Typography scale.
+/// Web base rules (theme.css): h1-h4/label/button font-weight: 500; line-height: 1.5.
 abstract final class AppTextStyles {
-  // Keep default font for now (no explicit fontFamily token).
+  static const double lineHeight = 1.5;
 
-  static const TextStyle displayLarge = TextStyle(
-    fontSize: 32,
-    fontWeight: FontWeight.bold,
-    color: AppColors.navy,
+  // Light defaults
+  static const Color _c = Color(0xFF1A2332); // AppColors.foreground (const avoid import cycles)
+  static const Color _muted = Color(0xFF6B7280); // AppColors.mutedForeground
+
+  // Web-ish semantic names
+  static const TextStyle h1 = TextStyle(
+    fontSize: 32, // approx --text-2xl
+    fontWeight: FontWeight.w500,
+    height: lineHeight,
+    color: _c,
   );
 
-  static const TextStyle displayMedium = TextStyle(
-    fontSize: 28,
-    fontWeight: FontWeight.bold,
-    color: AppColors.navy,
+  static const TextStyle h2 = TextStyle(
+    fontSize: 24, // approx --text-xl
+    fontWeight: FontWeight.w500,
+    height: lineHeight,
+    color: _c,
   );
 
-  static const TextStyle displaySmall = TextStyle(
-    fontSize: 24,
-    fontWeight: FontWeight.bold,
-    color: AppColors.navy,
+  static const TextStyle h3 = TextStyle(
+    fontSize: 18, // approx --text-lg
+    fontWeight: FontWeight.w500,
+    height: lineHeight,
+    color: _c,
   );
 
-  static const TextStyle headlineMedium = TextStyle(
-    fontSize: 20,
-    fontWeight: FontWeight.w600,
-    color: AppColors.navy,
+  static const TextStyle h4 = TextStyle(
+    fontSize: 16, // --text-base
+    fontWeight: FontWeight.w500,
+    height: lineHeight,
+    color: _c,
   );
 
-  static const TextStyle headlineSmall = TextStyle(
-    fontSize: 18,
-    fontWeight: FontWeight.w600,
-    color: AppColors.navy,
-  );
-
-  static const TextStyle titleLarge = TextStyle(
+  static const TextStyle label = TextStyle(
     fontSize: 16,
-    fontWeight: FontWeight.w600,
-    color: AppColors.navy,
+    fontWeight: FontWeight.w500,
+    height: lineHeight,
+    color: _c,
   );
 
-  static const TextStyle bodyLarge = TextStyle(
+  static const TextStyle button = TextStyle(
     fontSize: 16,
-    fontWeight: FontWeight.normal,
-    color: AppColors.navy,
+    fontWeight: FontWeight.w500,
+    height: lineHeight,
+    color: _c,
   );
 
-  static const TextStyle bodyMedium = TextStyle(
+  static const TextStyle input = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+    height: lineHeight,
+    color: _c,
+  );
+
+  static const TextStyle body = TextStyle(
     fontSize: 14,
-    fontWeight: FontWeight.normal,
-    color: AppColors.navy,
+    fontWeight: FontWeight.w400,
+    height: lineHeight,
+    color: _c,
   );
 
-  static const TextStyle bodySmall = TextStyle(
-    fontSize: 12,
-    fontWeight: FontWeight.normal,
-    color: AppColors.grey,
-  );
-
-  static const TextStyle labelLarge = TextStyle(
+  static const TextStyle bodyMuted = TextStyle(
     fontSize: 14,
-    fontWeight: FontWeight.w600,
-    color: AppColors.navy,
+    fontWeight: FontWeight.w400,
+    height: lineHeight,
+    color: _muted,
   );
 
-  static const TextStyle labelMedium = TextStyle(
-    fontSize: 12,
-    fontWeight: FontWeight.w600,
-    color: AppColors.navy,
-  );
+  // Legacy aliases (keep existing callers compiling)
+  static const TextStyle displayLarge = h1;
+  static const TextStyle displayMedium = h2;
+  static const TextStyle displaySmall = h3;
+
+  static const TextStyle headlineMedium = h3;
+  static const TextStyle headlineSmall = h4;
+
+  static const TextStyle titleLarge = h4;
+
+  static const TextStyle bodyLarge = body;
+  static const TextStyle bodyMedium = body;
+  static const TextStyle bodySmall = bodyMuted;
+
+  static const TextStyle labelLarge = label;
+  static const TextStyle labelMedium = label;
 }
