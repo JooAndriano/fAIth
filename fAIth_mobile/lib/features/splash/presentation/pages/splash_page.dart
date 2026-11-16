@@ -1,8 +1,9 @@
+import 'dart:async';
+
+import 'package:faith_mobile/core/routes/app_routes.dart';
+import 'package:faith_mobile/features/auth/presentation/controllers/auth_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'package:faith_mobile/features/auth/presentation/controllers/auth_controller.dart';
-import 'package:faith_mobile/core/routes/app_routes.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -23,9 +24,9 @@ class _SplashPageState extends State<SplashPage> {
 
     final auth = Get.find<AuthController>();
     if (auth.isAuthenticated) {
-      Get.offNamed(AppRoutes.shell);
+      unawaited(Get.offNamed(AppRoutes.shell));
     } else {
-      Get.offNamed(AppRoutes.login);
+      unawaited(Get.offNamed(AppRoutes.login));
     }
   }
 

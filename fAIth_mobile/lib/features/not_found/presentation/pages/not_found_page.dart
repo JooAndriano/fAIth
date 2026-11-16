@@ -1,7 +1,6 @@
+import 'package:faith_mobile/core/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'package:faith_mobile/core/routes/app_routes.dart';
 
 class NotFoundPage extends StatelessWidget {
   const NotFoundPage({super.key});

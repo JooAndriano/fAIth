@@ -1,7 +1,7 @@
+import 'package:faith_mobile/features/auth/presentation/controllers/auth_controller.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
-import 'package:faith_mobile/features/auth/presentation/controllers/auth_controller.dart';
 import 'app_routes.dart';
 
 class AuthMiddleware extends GetMiddleware {

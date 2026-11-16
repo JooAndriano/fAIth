@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:faith_mobile/core/theme/app_theme.dart';
+import 'package:flutter/material.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

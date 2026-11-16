@@ -23,19 +23,16 @@ class AppTheme {
       colorScheme: cs,
       scaffoldBackgroundColor: AppColors.background,
       dividerColor: AppColors.border,
-
       appBarTheme: const AppBarTheme(
         backgroundColor: AppColors.background,
         foregroundColor: AppColors.foreground,
         elevation: 0,
         centerTitle: true,
       ),
-
       cardTheme: const CardThemeData(
         color: AppColors.surface,
         elevation: 0,
       ),
-
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         backgroundColor: AppColors.surface,
         selectedItemColor: AppColors.accent,
@@ -43,8 +40,7 @@ class AppTheme {
         type: BottomNavigationBarType.fixed,
         elevation: 0,
       ),
-
-      textTheme: TextTheme(
+      textTheme: const TextTheme(
         displayLarge: AppTextStyles.h1,
         headlineLarge: AppTextStyles.h2,
         headlineMedium: AppTextStyles.h3,
@@ -53,7 +49,6 @@ class AppTheme {
         bodyLarge: AppTextStyles.body,
         bodyMedium: AppTextStyles.body,
       ),
-
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.accent,
@@ -66,7 +61,6 @@ class AppTheme {
           textStyle: AppTextStyles.button,
         ),
       ),
-
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
           foregroundColor: AppColors.foreground,
@@ -77,7 +71,6 @@ class AppTheme {
           textStyle: AppTextStyles.button,
         ),
       ),
-
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         fillColor: AppColors.muted, // web: --input-background
@@ -115,19 +108,16 @@ class AppTheme {
       colorScheme: cs,
       scaffoldBackgroundColor: AppColors.backgroundDark,
       dividerColor: AppColors.borderDark,
-
       appBarTheme: const AppBarTheme(
         backgroundColor: AppColors.backgroundDark,
         foregroundColor: AppColors.foregroundDark,
         elevation: 0,
         centerTitle: true,
       ),
-
       cardTheme: const CardThemeData(
         color: AppColors.surfaceDark,
         elevation: 0,
       ),
-
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         backgroundColor: AppColors.surfaceDark,
         selectedItemColor: AppColors.accent,
@@ -135,7 +125,6 @@ class AppTheme {
         type: BottomNavigationBarType.fixed,
         elevation: 0,
       ),
-
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         fillColor: AppColors.secondaryDark, // web: --input-background (dark)

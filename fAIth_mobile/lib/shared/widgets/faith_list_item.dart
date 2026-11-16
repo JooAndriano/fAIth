@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
-
 import 'package:faith_mobile/core/theme/app_spacing.dart';
+import 'package:flutter/material.dart';
 
 class FaithListItem extends StatelessWidget {
   final Widget? leading;

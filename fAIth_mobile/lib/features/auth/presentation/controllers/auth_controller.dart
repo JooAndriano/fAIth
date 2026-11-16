@@ -1,15 +1,13 @@
 import 'dart:async';
 
+import 'package:faith_mobile/features/auth/data/auth_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
-
-import 'package:faith_mobile/features/auth/data/auth_service.dart';
 
 class AuthController extends GetxController {
   final AuthService _authService;
 
-  AuthController({AuthService? authService})
-      : _authService = authService ?? AuthService();
+  AuthController({AuthService? authService}) : _authService = authService ?? AuthService();
 
   final Rxn<User> user = Rxn<User>();
   final RxBool isLoading = false.obs;

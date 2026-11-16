@@ -1,8 +1,9 @@
+import 'dart:async';
+
+import 'package:faith_mobile/core/routes/app_routes.dart';
+import 'package:faith_mobile/features/auth/presentation/controllers/auth_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'package:faith_mobile/features/auth/presentation/controllers/auth_controller.dart';
-import 'package:faith_mobile/core/routes/app_routes.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -35,7 +36,7 @@ class ProfilePage extends StatelessWidget {
                     ? null
                     : () async {
                         await auth.signOut();
-                        Get.offAllNamed(AppRoutes.login);
+                        unawaited(Get.offAllNamed(AppRoutes.login));
                       },
                 child: const Text('Sign out'),
               ),

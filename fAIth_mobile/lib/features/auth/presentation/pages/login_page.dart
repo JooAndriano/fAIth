@@ -1,8 +1,9 @@
+import 'dart:async';
+
+import 'package:faith_mobile/core/routes/app_routes.dart';
+import 'package:faith_mobile/features/auth/presentation/controllers/auth_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'package:faith_mobile/features/auth/presentation/controllers/auth_controller.dart';
-import 'package:faith_mobile/core/routes/app_routes.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -45,7 +46,7 @@ class LoginPage extends StatelessWidget {
                   await auth.signInWithGoogle();
 
                   if (auth.isAuthenticated) {
-                    Get.offNamed(AppRoutes.shell);
+                    unawaited(Get.offNamed(AppRoutes.shell));
                   }
                 },
                 icon: const Icon(Icons.login),
