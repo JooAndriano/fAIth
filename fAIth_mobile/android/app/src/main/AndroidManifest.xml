@@ -1,7 +1,6 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.faith.app">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="faith_mobile"
+        android:label="faith"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

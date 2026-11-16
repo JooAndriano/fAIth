@@ -1,9 +1,14 @@
 # Project Configuration
-# fAIth - Personal AI Spiritual Companion
+# faith - Personal AI Spiritual Companion
 
 project_type: "mobile-app"
 initialized_at: "2026-05-20T06:59:30Z"
-project_name: "fAIth"
+project_name: "faith"
+app_display_name: "faith"
+app_id:
+  android: "id.jivottama.faith"
+  ios: "id.jivottama.faith"
+dart_package: "faith_mobile"
 description: "Personal AI Spiritual Companion - Flutter mobile app with Firebase backend"
 tech_stack:
   frontend: "Flutter"

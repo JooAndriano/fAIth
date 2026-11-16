@@ -9,7 +9,7 @@ plugins {
 }
 
 android {
-    namespace = "com.faith.app"
+    namespace = "id.jivottama.faith"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -24,7 +24,7 @@ android {
 
     defaultConfig {
         // Application ID (must match Firebase Android app package_name)
-        applicationId = "com.faith.app"
+        applicationId = "id.jivottama.faith"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion

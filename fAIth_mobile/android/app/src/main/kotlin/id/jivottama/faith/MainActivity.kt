@@ -1,4 +1,4 @@
-package com.faith.app
+package id.jivottama.faith
 
 import io.flutter.embedding.android.FlutterActivity
 

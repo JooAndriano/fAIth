@@ -1,16 +1,34 @@
-# faith_mobile
+# faith
 
-A new Flutter project.
+Personal AI Spiritual Companion — aplikasi Flutter (GetX + Firebase) untuk Android & iOS.
 
-## Getting Started
+| | |
+|---|---|
+| Nama app (tampil ke user) | `faith` |
+| Android applicationId / namespace | `id.jivottama.faith` |
+| iOS bundle id | `id.jivottama.faith` |
+| Paket Dart | `faith_mobile` |
 
-This project is a starting point for a Flutter application.
+## Struktur `lib/`
 
-A few resources to get you started if this is your first Flutter project:
+```
+lib/
+  main.dart              # bootstrap Firebase + GetMaterialApp
+  firebase_options.dart  # generated oleh `flutterfire configure`
+  core/                  # bindings, routes, theme
+  shared/widgets/        # widget design system (FaithButton, FaithCard, ...)
+  features/<nama>/       # auth, splash, shell, home, chat, devotional, study, profile, not_found
+    data/                # service / repository
+    presentation/        # pages & controllers (GetX)
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Menjalankan secara lokal
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Langkah lengkap (termasuk setup Firebase) ada di bagian berikutnya setelah migrasi Firebase selesai.
+
+```sh
+flutter pub get
+flutter analyze
+flutter test
+flutter run
+```
