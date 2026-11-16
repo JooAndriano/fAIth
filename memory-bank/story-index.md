@@ -92,3 +92,97 @@ Stories are organized by intent and unit:
 
 **Last Updated:** 2026-05-20T07:15:00Z
 **Mode:** single-file
+
+### Intent: 002-static-ui
+
+### Unit: 001-ui-foundation
+- **001-theme-extension** - Status: Draft
+  - Path: `memory-bank/intents/002-static-ui/units/001-ui-foundation/stories/001-theme-extension.md`
+  - Description: Brand theme extension and theme-aware text
+- **002-shared-widgets** - Status: Draft
+  - Path: `memory-bank/intents/002-static-ui/units/001-ui-foundation/stories/002-shared-widgets.md`
+  - Description: Shared UI widgets
+- **003-view-state** - Status: Draft
+  - Path: `memory-bank/intents/002-static-ui/units/001-ui-foundation/stories/003-view-state.md`
+  - Description: ViewState and state widgets
+- **004-shell-routes** - Status: Draft
+  - Path: `memory-bank/intents/002-static-ui/units/001-ui-foundation/stories/004-shell-routes.md`
+  - Description: Five-tab shell and sub-routes
+
+### Unit: 002-home
+- **001-home-data** - Status: Draft
+  - Path: `memory-bank/intents/002-static-ui/units/002-home/stories/001-home-data.md`
+  - Description: Home data contracts and mocks
+- **002-home-screen** - Status: Draft
+  - Path: `memory-bank/intents/002-static-ui/units/002-home/stories/002-home-screen.md`
+  - Description: Home screen layout
+
+### Unit: 003-chat
+- **001-chat-domain** - Status: Draft
+  - Path: `memory-bank/intents/002-static-ui/units/003-chat/stories/001-chat-domain.md`
+  - Description: Chat models and fake AI repository
+- **002-chat-screen** - Status: Draft
+  - Path: `memory-bank/intents/002-static-ui/units/003-chat/stories/002-chat-screen.md`
+  - Description: Chat screen
+- **003-chat-states** - Status: Draft
+  - Path: `memory-bank/intents/002-static-ui/units/003-chat/stories/003-chat-states.md`
+  - Description: Typing effect and error handling
+
+### Unit: 004-devotional
+- **001-devotional-list-detail** - Status: Draft
+  - Path: `memory-bank/intents/002-static-ui/units/004-devotional/stories/001-devotional-list-detail.md`
+  - Description: Devotional list and detail
+- **002-saved-devotionals** - Status: Draft
+  - Path: `memory-bank/intents/002-static-ui/units/004-devotional/stories/002-saved-devotionals.md`
+  - Description: Bookmark and saved devotionals
+
+### Unit: 005-bible-study
+- **001-study-tab** - Status: Draft
+  - Path: `memory-bank/intents/002-static-ui/units/005-bible-study/stories/001-study-tab.md`
+  - Description: Study tab
+- **002-reader** - Status: Draft
+  - Path: `memory-bank/intents/002-static-ui/units/005-bible-study/stories/002-reader.md`
+  - Description: Book and chapter picker plus reader
+- **003-mark-verse** - Status: Draft
+  - Path: `memory-bank/intents/002-static-ui/units/005-bible-study/stories/003-mark-verse.md`
+  - Description: Mark verse
+
+### Unit: 006-prayer-journal
+- **001-prayer-domain** - Status: Draft
+  - Path: `memory-bank/intents/002-static-ui/units/006-prayer-journal/stories/001-prayer-domain.md`
+  - Description: Prayer model and repository
+- **002-prayer-journal-screen** - Status: Draft
+  - Path: `memory-bank/intents/002-static-ui/units/006-prayer-journal/stories/002-prayer-journal-screen.md`
+  - Description: Journal screen and form
+- **003-prayer-actions** - Status: Draft
+  - Path: `memory-bank/intents/002-static-ui/units/006-prayer-journal/stories/003-prayer-actions.md`
+  - Description: All prayers and actions sheet
+
+### Unit: 007-favorite-verses
+- **001-favorite-verses-crud** - Status: Draft
+  - Path: `memory-bank/intents/002-static-ui/units/007-favorite-verses/stories/001-favorite-verses-crud.md`
+  - Description: Favorite verses CRUD and default
+
+### Unit: 008-settings-profile
+- **001-settings-screen** - Status: Draft
+  - Path: `memory-bank/intents/002-static-ui/units/008-settings-profile/stories/001-settings-screen.md`
+  - Description: Settings screen
+- **002-preferences** - Status: Draft
+  - Path: `memory-bank/intents/002-static-ui/units/008-settings-profile/stories/002-preferences.md`
+  - Description: Theme and language
+- **003-profile-logout** - Status: Draft
+  - Path: `memory-bank/intents/002-static-ui/units/008-settings-profile/stories/003-profile-logout.md`
+  - Description: Profile and logout
+
+### Unit: 009-nearby-churches
+- **001-churches-list** - Status: Draft
+  - Path: `memory-bank/intents/002-static-ui/units/009-nearby-churches/stories/001-churches-list.md`
+  - Description: Churches list
+
+### Unit: 010-polish
+- **001-transitions-states** - Status: Draft
+  - Path: `memory-bank/intents/002-static-ui/units/010-polish/stories/001-transitions-states.md`
+  - Description: Transitions and consistent states
+- **002-widget-tests** - Status: Draft
+  - Path: `memory-bank/intents/002-static-ui/units/010-polish/stories/002-widget-tests.md`
+  - Description: Widget tests per screen
