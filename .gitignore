@@ -1,0 +1,29 @@
+# --- IDE / editor ---
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+*.swp
+.history/
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Logs / env ---
+*.log
+.env
+.env.*
+
+# --- fAIth_web (React/Vite prototype) ---
+node_modules/
+fAIth_web/dist/
+fAIth_web/.vite/
+
+# --- Firebase CLI ---
+.firebase/
+firebase-debug.log
+firestore-debug.log
+ui-debug.log
