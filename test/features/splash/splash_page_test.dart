@@ -19,13 +19,13 @@ void main() {
     return () => finished;
   }
 
-  testWidgets('shows logo, name and tagline after the intro', (tester) async {
+  testWidgets('shows logo and name after the intro', (tester) async {
     await pumpSplash(tester);
     await tester.pump(SplashPage.introDuration);
 
     expect(find.bySemanticsLabel('Logo fAIth'), findsOneWidget);
     expect(find.text('fAIth', findRichText: true), findsOneWidget);
-    expect(find.text('Pendamping rohani pribadimu'), findsOneWidget);
+    expect(find.text('Pendamping rohani pribadimu'), findsNothing);
   });
 
   testWidgets('calls onFinished once after intro + hold', (tester) async {
@@ -63,7 +63,7 @@ void main() {
       ),
     );
 
-    expect(find.text('Pendamping rohani pribadimu'), findsOneWidget);
+    expect(find.text('fAIth', findRichText: true), findsOneWidget);
     await tester.pump(SplashPage.holdDuration);
     expect(finished, 1);
   });

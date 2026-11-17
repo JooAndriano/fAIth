@@ -46,12 +46,12 @@ flutter_launcher_icons:
 # Generate with: dart run flutter_native_splash:create
 # Keep colors and logo size in sync with lib/features/splash (SplashPage).
 flutter_native_splash:
-  background_image: assets/branding/icon_background.png
+  color: '#C9A961'
   image: assets/branding/splash_logo.png
   android_12:
-    color: '#D59B76'
+    color: '#C9A961'
     image: assets/branding/splash_android12.png
-    icon_background_color: '#D59B76'
+    icon_background_color: '#C9A961'
   fullscreen: false
   android: true
   ios: true

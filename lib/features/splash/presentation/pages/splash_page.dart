@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
-/// Animated splash that continues the native splash (same gradient, logo centered at
+/// Animated splash that continues the native splash (same background, logo centered at
 /// [SplashPage.logoWidth]) and then routes to the shell or login.
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key, this.onFinished});
@@ -42,7 +42,6 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
   late final Animation<double> _lift = _interval(0.0, 0.5);
   late final Animation<double> _glow = _interval(0.0, 0.55, Curves.easeOut);
   late final Animation<double> _title = _interval(0.35, 0.75);
-  late final Animation<double> _tagline = _interval(0.55, 0.9);
   late final Animation<double> _loader = _interval(0.75, 1.0, Curves.easeOut);
 
   @override
@@ -92,24 +91,16 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle.dark.copyWith(statusBarColor: Colors.transparent),
       child: Scaffold(
-        body: DecoratedBox(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [AppColors.brandTop, AppColors.brandMid, AppColors.brandBottom],
-            ),
-          ),
-          child: AnimatedBuilder(
-            animation: Listenable.merge([_intro, _ambient]),
-            builder: (context, _) => Stack(
-              fit: StackFit.expand,
-              children: [
-                _buildRays(),
-                _buildCenter(textTheme),
-                _buildLoader(),
-              ],
-            ),
+        backgroundColor: AppColors.splashBackground,
+        body: AnimatedBuilder(
+          animation: Listenable.merge([_intro, _ambient]),
+          builder: (context, _) => Stack(
+            fit: StackFit.expand,
+            children: [
+              _buildRays(),
+              _buildCenter(textTheme),
+              _buildLoader(),
+            ],
           ),
         ),
       ),
@@ -143,10 +134,6 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
       fontSize: 44,
       letterSpacing: 1.2,
       fontWeight: FontWeight.w600,
-    );
-    final tagline = (textTheme.bodyLarge ?? const TextStyle()).copyWith(
-      color: AppColors.brandInk.withValues(alpha: 0.8),
-      letterSpacing: 0.4,
     );
 
     final screenWidth = MediaQuery.sizeOf(context).width;
@@ -210,18 +197,6 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                         ),
                         style: title,
                         textAlign: TextAlign.center,
-                      ),
-                    ),
-                    const SizedBox(height: 6),
-                    _fadeUp(
-                      _tagline,
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 32),
-                        child: Text(
-                          'Pendamping rohani pribadimu',
-                          style: tagline,
-                          textAlign: TextAlign.center,
-                        ),
                       ),
                     ),
                   ],
