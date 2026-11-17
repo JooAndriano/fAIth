@@ -7,8 +7,8 @@ Status diverifikasi dari kode per 2026-11-17.
   dokumentasi diganti `CLAUDE.md` + `docs/`.
 
 ## Berikutnya
-- Melanjutkan Fase 2: layar statis Tanya fAIth (chat) dengan `ChatRepository` Mock yang sudah
-  dipaginasi.
+- Melanjutkan Fase 2: layar statis Tanya fAIth (chat). `ChatRepository` (interface + Mock dengan
+  paginasi 20, cursor) belum ada dan perlu dibuat dulu. Repo Doa (`PrayerRepository`) juga belum ada.
 
 ## Fase 1: Setup & cleanup
 - [x] Proyek Flutter (Android + iOS), GetX, lint (`analysis_options.yaml`)
