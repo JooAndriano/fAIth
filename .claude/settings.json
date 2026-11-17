@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(**/*adminsdk*.json)",
+      "Read(**/.env*)",
+      "Read(**/local.properties)",
+      "Read(**/key.properties)",
+      "Read(**/*.jks)",
+      "Read(**/*.keystore)"
+    ]
+  }
+}
