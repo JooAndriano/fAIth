@@ -3,7 +3,7 @@
 **Intent:** 002-static-ui  
 **Unit:** 001-ui-foundation  
 **Priority:** Must  
-**Status:** Draft
+**Status:** Completed
 
 ## Acceptance Criteria
 - Tabs: Beranda, Tanya fAIth, Alkitab, Doa, Pengaturan with Material icons and active indicator

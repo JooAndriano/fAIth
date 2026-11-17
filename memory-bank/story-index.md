@@ -96,16 +96,16 @@ Stories are organized by intent and unit:
 ### Intent: 002-static-ui
 
 ### Unit: 001-ui-foundation
-- **001-theme-extension** - Status: Draft
+- **001-theme-extension** - Status: Completed
   - Path: `memory-bank/intents/002-static-ui/units/001-ui-foundation/stories/001-theme-extension.md`
   - Description: Brand theme extension and theme-aware text
-- **002-shared-widgets** - Status: Draft
+- **002-shared-widgets** - Status: Completed
   - Path: `memory-bank/intents/002-static-ui/units/001-ui-foundation/stories/002-shared-widgets.md`
   - Description: Shared UI widgets
-- **003-view-state** - Status: Draft
+- **003-view-state** - Status: Completed
   - Path: `memory-bank/intents/002-static-ui/units/001-ui-foundation/stories/003-view-state.md`
   - Description: ViewState and state widgets
-- **004-shell-routes** - Status: Draft
+- **004-shell-routes** - Status: Completed
   - Path: `memory-bank/intents/002-static-ui/units/001-ui-foundation/stories/004-shell-routes.md`
   - Description: Five-tab shell and sub-routes
 

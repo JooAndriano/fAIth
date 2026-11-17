@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:faith_mobile/core/routes/app_routes.dart';
+import 'package:faith_mobile/core/theme/faith_colors.dart';
 import 'package:faith_mobile/features/auth/presentation/controllers/auth_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -20,11 +21,11 @@ class LoginPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               const Spacer(),
-              const Center(
+              Center(
                 child: Icon(
                   Icons.favorite,
                   size: 80,
-                  color: Color(0xFFD4A574),
+                  color: context.faith.gold,
                 ),
               ),
               const SizedBox(height: 24),

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:faith_mobile/core/routes/app_routes.dart';
+import 'package:faith_mobile/core/theme/faith_colors.dart';
 import 'package:faith_mobile/features/auth/presentation/controllers/auth_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -39,16 +40,16 @@ class _SplashPageState extends State<SplashPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Spacer(),
-            const Icon(
+            Icon(
               Icons.favorite,
               size: 80,
-              color: Color(0xFFD4A574),
+              color: context.faith.gold,
             ),
             const SizedBox(height: 24),
             Text(
               'fAIth',
               style: Theme.of(context).textTheme.displayLarge?.copyWith(
-                    color: const Color(0xFFD4A574),
+                    color: context.faith.gold,
                   ),
             ),
             const SizedBox(height: 8),
@@ -60,7 +61,7 @@ class _SplashPageState extends State<SplashPage> {
             Padding(
               padding: const EdgeInsets.only(bottom: 40),
               child: CircularProgressIndicator(
-                color: Theme.of(context).primaryColor,
+                color: context.faith.gold,
               ),
             ),
           ],

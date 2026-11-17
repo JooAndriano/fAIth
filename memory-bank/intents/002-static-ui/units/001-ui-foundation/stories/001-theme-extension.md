@@ -3,7 +3,7 @@
 **Intent:** 002-static-ui  
 **Unit:** 001-ui-foundation  
 **Priority:** Must  
-**Status:** Draft
+**Status:** Completed
 
 ## Acceptance Criteria
 - `FaithColors` ThemeExtension (gold, sunset, navy header gradient, highlight gradient, goldBorder) with light and dark values from fAIth_web theme.css

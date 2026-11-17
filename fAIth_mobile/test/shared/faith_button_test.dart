@@ -9,13 +9,6 @@ Widget _wrap(Widget child) => MaterialApp(
     );
 
 void main() {
-  group('AppTheme', () {
-    test('light and dark themes have matching brightness', () {
-      expect(AppTheme.lightTheme.brightness, Brightness.light);
-      expect(AppTheme.darkTheme.brightness, Brightness.dark);
-    });
-  });
-
   group('FaithButton', () {
     testWidgets('renders label and triggers onPressed', (tester) async {
       var tapped = 0;

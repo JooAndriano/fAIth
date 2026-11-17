@@ -5,4 +5,5 @@ abstract final class AppRadius {
   static const double md = 14; // ~radius-md (base-2)
   static const double lg = 16; // base
   static const double xl = 20; // ~radius-xl (base+4)
+  static const double xxl = 24; // rounded-3xl (headers, bottom sheets)
 }

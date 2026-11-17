@@ -3,7 +3,7 @@
 **Intent:** 002-static-ui  
 **Unit:** 001-ui-foundation  
 **Priority:** Must  
-**Status:** Draft
+**Status:** Completed
 
 ## Acceptance Criteria
 - GradientHeader, SectionHeader, HighlightCard, GradientButton, ChipSelector, AppBottomSheet available in `lib/shared/widgets`

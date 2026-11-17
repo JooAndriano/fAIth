@@ -31,6 +31,7 @@ abstract final class AppColors {
   static const Color borderDark = Color.fromRGBO(232, 220, 200, 0.15); // --border (dark)
 
   static const Color destructive = Color(0xFFD4183D); // --destructive (light)
+  static const Color destructiveDark = Color(0xFFF87171); // readable error on dark surfaces
 
   // Legacy semantic (keep for existing UI; map to new tokens)
   static const Color primaryGold = accent;

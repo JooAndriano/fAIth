@@ -1,92 +1,61 @@
 import 'package:flutter/material.dart';
 
-/// Typography scale.
-/// Web base rules (theme.css): h1-h4/label/button font-weight: 500; line-height: 1.5.
+/// Typography scale (sizes and weights only).
+///
+/// Colors are intentionally absent: [textTheme] applies the foreground color per
+/// brightness, so widgets must read styles from `Theme.of(context).textTheme`.
+/// Web base rules (theme.css): headings/labels weight 500, line-height 1.5.
 abstract final class AppTextStyles {
   static const double lineHeight = 1.5;
 
-  // Light defaults
-  static const Color _c = Color(0xFF1A2332); // AppColors.foreground (const avoid import cycles)
-  static const Color _muted = Color(0xFF6B7280); // AppColors.mutedForeground
-
-  // Web-ish semantic names
-  static const TextStyle h1 = TextStyle(
-    fontSize: 32, // approx --text-2xl
-    fontWeight: FontWeight.w500,
-    height: lineHeight,
-    color: _c,
-  );
-
-  static const TextStyle h2 = TextStyle(
-    fontSize: 24, // approx --text-xl
-    fontWeight: FontWeight.w500,
-    height: lineHeight,
-    color: _c,
-  );
-
-  static const TextStyle h3 = TextStyle(
-    fontSize: 18, // approx --text-lg
-    fontWeight: FontWeight.w500,
-    height: lineHeight,
-    color: _c,
-  );
-
+  static const TextStyle h1 = TextStyle(fontSize: 32, fontWeight: FontWeight.w500, height: 1.25);
+  static const TextStyle h2 = TextStyle(fontSize: 24, fontWeight: FontWeight.w500, height: 1.3);
+  static const TextStyle h3 = TextStyle(fontSize: 18, fontWeight: FontWeight.w500, height: 1.4);
   static const TextStyle h4 = TextStyle(
-    fontSize: 16, // --text-base
-    fontWeight: FontWeight.w500,
-    height: lineHeight,
-    color: _c,
-  );
-
-  static const TextStyle label = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w500,
     height: lineHeight,
-    color: _c,
   );
-
+  static const TextStyle label = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+    height: lineHeight,
+  );
   static const TextStyle button = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w500,
     height: lineHeight,
-    color: _c,
   );
-
-  static const TextStyle input = TextStyle(
+  static const TextStyle bodyLarge = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w400,
     height: lineHeight,
-    color: _c,
   );
-
   static const TextStyle body = TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.w400,
     height: lineHeight,
-    color: _c,
   );
 
-  static const TextStyle bodyMuted = TextStyle(
-    fontSize: 14,
-    fontWeight: FontWeight.w400,
-    height: lineHeight,
-    color: _muted,
-  );
-
-  // Legacy aliases (keep existing callers compiling)
-  static const TextStyle displayLarge = h1;
-  static const TextStyle displayMedium = h2;
-  static const TextStyle displaySmall = h3;
-
-  static const TextStyle headlineMedium = h3;
-  static const TextStyle headlineSmall = h4;
-
-  static const TextStyle titleLarge = h4;
-
-  static const TextStyle bodyLarge = body;
-  static const TextStyle bodyMedium = body;
-  static const TextStyle bodySmall = bodyMuted;
-
-  static const TextStyle labelLarge = label;
-  static const TextStyle labelMedium = label;
+  /// Full [TextTheme] colored for one brightness.
+  /// `bodySmall`/`labelSmall` use the muted color; minimum size is 14sp (UX standard).
+  static TextTheme textTheme({required Color foreground, required Color muted}) {
+    return TextTheme(
+      displayLarge: h1.copyWith(color: foreground),
+      displayMedium: h2.copyWith(color: foreground),
+      displaySmall: h3.copyWith(color: foreground),
+      headlineLarge: h1.copyWith(color: foreground),
+      headlineMedium: h2.copyWith(color: foreground),
+      headlineSmall: h3.copyWith(color: foreground),
+      titleLarge: h3.copyWith(color: foreground),
+      titleMedium: h4.copyWith(color: foreground),
+      titleSmall: label.copyWith(color: foreground),
+      bodyLarge: bodyLarge.copyWith(color: foreground),
+      bodyMedium: body.copyWith(color: foreground),
+      bodySmall: body.copyWith(color: muted),
+      labelLarge: button.copyWith(color: foreground),
+      labelMedium: label.copyWith(color: foreground),
+      labelSmall: label.copyWith(color: muted),
+    );
+  }
 }
