@@ -1,3 +1,5 @@
+import 'package:faith_mobile/features/ai/presentation/bindings/ai_debug_binding.dart';
+import 'package:faith_mobile/features/ai/presentation/pages/ai_debug_page.dart';
 import 'package:faith_mobile/features/auth/presentation/pages/login_page.dart';
 import 'package:faith_mobile/features/not_found/presentation/pages/not_found_page.dart';
 import 'package:faith_mobile/features/profile/presentation/pages/profile_page.dart';
@@ -5,6 +7,7 @@ import 'package:faith_mobile/features/shell/presentation/bindings/shell_binding.
 import 'package:faith_mobile/features/shell/presentation/pages/shell_page.dart';
 import 'package:faith_mobile/features/splash/presentation/pages/splash_page.dart';
 import 'package:faith_mobile/shared/widgets/coming_soon.dart';
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 
 import 'auth_middleware.dart';
@@ -30,6 +33,9 @@ abstract final class AppRoutes {
   static const String about = '/settings/about';
 
   static const String notFound = '/not-found';
+
+  /// Debug builds only (temporary): end-to-end test of the AI gateway.
+  static const String aiDebug = '/debug/ai';
 
   /// Screens not built yet, with their titles. Remove an entry once its screen exists.
   static const Map<String, String> _pendingScreens = {
@@ -57,6 +63,13 @@ abstract final class AppRoutes {
       GetPage(
         name: entry.key,
         page: () => ComingSoonPage(title: entry.value),
+        middlewares: [AuthMiddleware()],
+      ),
+    if (kDebugMode)
+      GetPage(
+        name: aiDebug,
+        page: () => const AiDebugPage(),
+        binding: AiDebugBinding(),
         middlewares: [AuthMiddleware()],
       ),
     GetPage(name: notFound, page: () => const NotFoundPage()),

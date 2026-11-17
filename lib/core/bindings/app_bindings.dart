@@ -1,3 +1,5 @@
+import 'package:faith_mobile/features/ai/data/ai_service.dart';
+import 'package:faith_mobile/features/ai/domain/ai_gateway.dart';
 import 'package:faith_mobile/features/auth/domain/app_user.dart';
 import 'package:faith_mobile/features/auth/presentation/controllers/auth_controller.dart';
 import 'package:faith_mobile/features/bible/data/mock_bible_repository.dart';
@@ -27,5 +29,6 @@ class AppBindings extends Bindings {
     Get.lazyPut<FavoriteVerseRepository>(MockFavoriteVerseRepository.new, fenix: true);
     Get.lazyPut<ChurchRepository>(MockChurchRepository.new, fenix: true);
     Get.lazyPut<VerseOfDayRepository>(LocalVerseOfDayRepository.new, fenix: true);
+    Get.lazyPut<AiGateway>(AiService.new, fenix: true);
   }
 }

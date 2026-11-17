@@ -1,4 +1,5 @@
 import 'package:faith_mobile/core/routes/app_routes.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -33,6 +34,13 @@ class SettingsPage extends StatelessWidget {
               title: Text(label),
               trailing: const Icon(Icons.chevron_right),
               onTap: () => Get.toNamed<void>(route),
+            ),
+          if (kDebugMode)
+            ListTile(
+              leading: const Icon(Icons.bug_report_outlined),
+              title: const Text('Debug: AI Gateway'),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => Get.toNamed<void>(AppRoutes.aiDebug),
             ),
         ],
       ),
