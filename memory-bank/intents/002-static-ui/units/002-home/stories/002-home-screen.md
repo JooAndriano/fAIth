@@ -3,7 +3,7 @@
 **Intent:** 002-static-ui  
 **Unit:** 002-home  
 **Priority:** Must  
-**Status:** Draft
+**Status:** Completed
 
 ## Acceptance Criteria
 - Greeting by time of day (Selamat pagi/siang/sore/malam) plus first name from Auth (fallback "Sahabat")

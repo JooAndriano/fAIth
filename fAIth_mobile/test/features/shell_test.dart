@@ -8,12 +8,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get/get.dart';
 
+import '../helpers/fakes.dart';
 import '../helpers/pump_app.dart';
 
 void main() {
   late ShellController controller;
 
-  setUp(() => controller = Get.put(ShellController()));
+  setUp(() {
+    controller = Get.put(ShellController());
+    putHomeController();
+  });
   tearDown(Get.reset);
 
   Finder navLabel(String label) =>

@@ -110,10 +110,10 @@ Stories are organized by intent and unit:
   - Description: Five-tab shell and sub-routes
 
 ### Unit: 002-home
-- **001-home-data** - Status: Draft
+- **001-home-data** - Status: Completed
   - Path: `memory-bank/intents/002-static-ui/units/002-home/stories/001-home-data.md`
   - Description: Home data contracts and mocks
-- **002-home-screen** - Status: Draft
+- **002-home-screen** - Status: Completed
   - Path: `memory-bank/intents/002-static-ui/units/002-home/stories/002-home-screen.md`
   - Description: Home screen layout
 

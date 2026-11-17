@@ -5,9 +5,8 @@ import 'package:flutter_test/flutter_test.dart';
 
 import '../helpers/pump_app.dart';
 
-const _longText =
-    'Sebab Aku ini mengetahui rancangan-rancangan apa yang ada pada-Ku mengenai kamu, '
-    'demikianlah firman TUHAN, yaitu rancangan damai sejahtera.';
+const _longText = 'Teks panjang untuk menguji pembungkusan baris pada layar kecil dengan '
+    'ukuran huruf yang diperbesar agar tidak terjadi overflow sama sekali.';
 
 Future<void> _pump(WidgetTester tester, Widget child, {required bool dark, required bool small}) {
   return pumpApp(

@@ -1,7 +1,7 @@
 import 'package:faith_mobile/features/auth/presentation/pages/login_page.dart';
 import 'package:faith_mobile/features/not_found/presentation/pages/not_found_page.dart';
 import 'package:faith_mobile/features/profile/presentation/pages/profile_page.dart';
-import 'package:faith_mobile/features/shell/presentation/controllers/shell_controller.dart';
+import 'package:faith_mobile/features/shell/presentation/bindings/shell_binding.dart';
 import 'package:faith_mobile/features/shell/presentation/pages/shell_page.dart';
 import 'package:faith_mobile/features/splash/presentation/pages/splash_page.dart';
 import 'package:faith_mobile/shared/widgets/coming_soon.dart';
@@ -49,9 +49,7 @@ abstract final class AppRoutes {
     GetPage(
       name: shell,
       page: () => const ShellPage(),
-      binding: BindingsBuilder(() {
-        Get.put(ShellController());
-      }),
+      binding: ShellBinding(),
       middlewares: [AuthMiddleware()],
     ),
     GetPage(name: profile, page: () => const ProfilePage(), middlewares: [AuthMiddleware()]),

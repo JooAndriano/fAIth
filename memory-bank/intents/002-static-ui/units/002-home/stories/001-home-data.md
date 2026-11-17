@@ -3,7 +3,7 @@
 **Intent:** 002-static-ui  
 **Unit:** 002-home  
 **Priority:** Must  
-**Status:** Draft
+**Status:** Completed
 
 ## Acceptance Criteria
 - `VerseOfDayRepository` plus minimal mocks for devotional, favorite verse and church reads

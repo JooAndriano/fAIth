@@ -178,3 +178,63 @@ class ViewStateBuilder<T> extends StatelessWidget {
     };
   }
 }
+
+/// Compact [ViewState] renderer for a section inside a page (cards on Beranda).
+///
+/// Loading shows a small spinner, errors show a one-line message with retry, and
+/// empty renders [empty] (nothing by default).
+class InlineStateView<T> extends StatelessWidget {
+  const InlineStateView({
+    super.key,
+    required this.state,
+    required this.builder,
+    this.onRetry,
+    this.empty,
+    this.minHeight = 72,
+  });
+
+  final ViewState<T> state;
+  final Widget Function(BuildContext context, T data) builder;
+  final VoidCallback? onRetry;
+  final Widget? empty;
+  final double minHeight;
+
+  @override
+  Widget build(BuildContext context) {
+    return switch (state) {
+      ViewLoading<T>() => SizedBox(
+          height: minHeight,
+          child: const Center(
+            child: SizedBox.square(
+              dimension: 24,
+              child: CircularProgressIndicator(strokeWidth: 2),
+            ),
+          ),
+        ),
+      ViewEmpty<T>() => empty ?? const SizedBox.shrink(),
+      ViewError<T>(:final message) => _InlineError(message: message, onRetry: onRetry),
+      ViewData<T>(:final data) => builder(context, data),
+    };
+  }
+}
+
+class _InlineError extends StatelessWidget {
+  const _InlineError({required this.message, this.onRetry});
+
+  final String message;
+  final VoidCallback? onRetry;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Row(
+      children: [
+        Icon(Icons.error_outline, color: theme.colorScheme.error),
+        const SizedBox(width: AppSpacing.xs),
+        Expanded(child: Text(message, style: theme.textTheme.bodySmall)),
+        if (onRetry != null)
+          IconButton(onPressed: onRetry, icon: const Icon(Icons.refresh), tooltip: 'Coba lagi'),
+      ],
+    );
+  }
+}

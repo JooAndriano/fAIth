@@ -1,10 +1,11 @@
 import 'dart:async';
 
 import 'package:faith_mobile/features/auth/data/auth_service.dart';
+import 'package:faith_mobile/features/auth/domain/app_user.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
-class AuthController extends GetxController {
+class AuthController extends GetxController implements UserSession {
   final AuthService _authService;
 
   AuthController({AuthService? authService}) : _authService = authService ?? AuthService();
@@ -14,6 +15,13 @@ class AuthController extends GetxController {
   StreamSubscription<User?>? _sub;
 
   bool get isAuthenticated => user.value != null;
+
+  @override
+  AppUser? get currentUser {
+    final u = user.value;
+    if (u == null) return null;
+    return AppUser(uid: u.uid, displayName: u.displayName, email: u.email, photoUrl: u.photoURL);
+  }
 
   @override
   void onInit() {
