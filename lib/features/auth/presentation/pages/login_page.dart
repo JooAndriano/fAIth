@@ -22,7 +22,7 @@ class LoginPage extends StatelessWidget {
               const Spacer(),
               Center(
                 child: Image.asset(
-                  'assets/branding/splash_logo.png',
+                  'assets/splash/splash_logo.png',
                   width: 120,
                   semanticLabel: 'Logo fAIth',
                 ),

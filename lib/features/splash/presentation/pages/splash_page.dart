@@ -16,7 +16,7 @@ class SplashPage extends StatefulWidget {
   /// Called once the intro is done. Defaults to routing by auth state.
   final VoidCallback? onFinished;
 
-  /// Logo width in dp; matches `assets/branding/splash_logo.png` (640px @4x) in the native splash.
+  /// Logo width in dp; matches `assets/splash/splash_logo.png` (640px @4x) in the native splash.
   static const double logoWidth = 160;
   static const Duration introDuration = Duration(milliseconds: 1600);
   static const Duration holdDuration = Duration(milliseconds: 700);
@@ -89,14 +89,20 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: SystemUiOverlayStyle.dark.copyWith(statusBarColor: Colors.transparent),
+      value: SystemUiOverlayStyle.light.copyWith(statusBarColor: Colors.transparent),
       child: Scaffold(
-        backgroundColor: AppColors.splashBackground,
+        backgroundColor: AppColors.brandDeep,
         body: AnimatedBuilder(
           animation: Listenable.merge([_intro, _ambient]),
           builder: (context, _) => Stack(
             fit: StackFit.expand,
             children: [
+              // Same image and stretch as the native splash background.
+              const Image(
+                image: AssetImage('assets/icon_background.png'),
+                fit: BoxFit.fill,
+                excludeFromSemantics: true,
+              ),
               _buildRays(),
               _buildCenter(textTheme),
               _buildLoader(),
@@ -130,7 +136,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
 
   Widget _buildCenter(TextTheme textTheme) {
     final title = (textTheme.displayLarge ?? const TextStyle()).copyWith(
-      color: AppColors.brandInk,
+      color: AppColors.brandGold,
       fontSize: 44,
       letterSpacing: 1.2,
       fontWeight: FontWeight.w600,
@@ -155,14 +161,14 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                   shape: BoxShape.circle,
                   boxShadow: [
                     BoxShadow(
-                      color: AppColors.brandCream.withValues(alpha: 0.35 * _glow.value),
+                      color: AppColors.brandGold.withValues(alpha: 0.25 * _glow.value),
                       blurRadius: 100,
                       spreadRadius: 6,
                     ),
                   ],
                 ),
                 child: Image.asset(
-                  'assets/branding/splash_logo.png',
+                  'assets/splash/splash_logo.png',
                   width: SplashPage.logoWidth,
                   height: _logoHeight,
                   semanticLabel: 'Logo fAIth',
@@ -209,8 +215,8 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
     );
   }
 
-  /// Logo height at [SplashPage.logoWidth] (source art is 660 x 485).
-  static const double _logoHeight = SplashPage.logoWidth * 485 / 660;
+  /// Logo height at [SplashPage.logoWidth] (source art is 518 x 494, see tools/branding).
+  static const double _logoHeight = SplashPage.logoWidth * 494 / 518;
 
   Widget _fadeUp(Animation<double> a, Widget child) {
     return Opacity(
@@ -246,7 +252,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
       margin: const EdgeInsets.symmetric(horizontal: 5),
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: AppColors.brandCream.withValues(alpha: 0.45 + 0.55 * pulse),
+        color: AppColors.brandGold.withValues(alpha: 0.35 + 0.65 * pulse),
       ),
     );
   }
@@ -265,8 +271,8 @@ class _RaysPainter extends CustomPainter {
     final paint = Paint()
       ..shader = RadialGradient(
         colors: [
-          AppColors.brandCream.withValues(alpha: 0.32),
-          AppColors.brandCream.withValues(alpha: 0.0),
+          AppColors.brandGold.withValues(alpha: 0.18),
+          AppColors.brandGold.withValues(alpha: 0.0),
         ],
       ).createShader(Rect.fromCircle(center: center, radius: radius));
 

@@ -12,10 +12,11 @@ abstract final class AppColors {
   static const Color gold = Color(0xFFC9A961); // --gold (light)
   static const Color sunset = Color(0xFFE8956F); // --sunset
 
-  // Brand (splash). The splash background matches the primary button ([gold]). Keep in sync
-  // with `flutter_native_splash` in pubspec.yaml.
-  static const Color splashBackground = gold;
-  static const Color brandInk = Color(0xFF5A3E2B);
+  // Brand (app icon / splash, sampled from assets/icon_background.png). Keep in sync with
+  // `flutter_native_splash` in pubspec.yaml.
+  static const Color brandGlow = Color(0xFF72552C); // center of the background
+  static const Color brandDeep = Color(0xFF2A1C13); // corners of the background
+  static const Color brandGold = Color(0xFFE9C987); // light gold of the logo
   static const Color brandCream = Color(0xFFFBF3E8);
 
   // Theme semantic aliases (light)
