@@ -11,9 +11,9 @@ compatibility_date = "2024-12-01"
 FIREBASE_PROJECT_ID = "faith-514ef"
 TORCONS_BASE_URL = "https://hellpit.torcons.ai"
 # Wajib diisi dengan ID model Torcons yang dipakai. Jangan hardcode model di kode.
-TORCONS_MODEL = "REPLACE_WITH_MODEL_ID"
+TORCONS_MODEL = "Torcons"
 # Batas permintaan per pengguna (uid) per hari.
-DAILY_LIMIT_CHAT = "30"
+DAILY_LIMIT_CHAT = "3"
 
 # Secret (JANGAN taruh di file ini / jangan commit):
 #   npx wrangler secret put TORCONS_API_KEY
@@ -25,5 +25,4 @@ DAILY_LIMIT_CHAT = "30"
 # Salin "id" (dan "preview_id") dari output perintah tersebut.
 [[kv_namespaces]]
 binding = "RATE_KV"
-id = "REPLACE_WITH_KV_NAMESPACE_ID"
-preview_id = "REPLACE_WITH_KV_PREVIEW_ID"
+id = "be155df2a58a42e5bc110f1cf8dc0fc7"
