@@ -54,7 +54,7 @@ listener ke koleksi besar, offline persistence aktif.
       dijalankan belum tercatat di repo. Saat ini baru `day-001` yang `published` (`day-002`–`004` draft)
 - [x] Nama koleksi renungan diseragamkan jadi `devotionals` (rules + index `status`/`dayNumber`);
       rules test emulator di `tools/rules-test` (published dibaca user login, draft tidak, tulis
-      klien ditolak). **Belum di-deploy.**
+      klien ditolak). Rules + indexes sudah di-deploy ke `faith-514ef` (2026-11-17).
 - [ ] Audit skema Firestore terhadap layar Fase 2 (koleksi kurang/berlebih), termasuk memutuskan
       top-level vs subkoleksi `users/{uid}/...` (lihat tabel ketidakcocokan di `docs/FIRESTORE.md`)
 - [ ] Rules + rules test untuk koleksi lain (user hanya akses miliknya; konten umum read-only;
