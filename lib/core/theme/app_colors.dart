@@ -12,6 +12,14 @@ abstract final class AppColors {
   static const Color gold = Color(0xFFC9A961); // --gold (light)
   static const Color sunset = Color(0xFFE8956F); // --sunset
 
+  // Brand (app icon / splash, sampled from assets/icon.png). Keep in sync with
+  // `flutter_native_splash` in pubspec.yaml.
+  static const Color brandTop = Color(0xFFE2BC8A);
+  static const Color brandMid = Color(0xFFD59B76);
+  static const Color brandBottom = Color(0xFFC97B63);
+  static const Color brandInk = Color(0xFF5A3E2B);
+  static const Color brandCream = Color(0xFFFBF3E8);
+
   // Theme semantic aliases (light)
   static const Color background = ivory; // --background (light)
   static const Color foreground = navy; // --foreground (light)
