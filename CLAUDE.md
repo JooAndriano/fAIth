@@ -35,6 +35,7 @@ lib/features/<f>/    domain/ (models, repository interface) · data/ (impl) · p
 test/                cermin lib/, fake di test/helpers/fakes.dart
 content/devotionals/ renungan JSON (draft/published)
 tools/seed/          seed Firestore via Admin SDK (Node 20+)
+tools/rules-test/    rules test Firestore di emulator (project demo-faith)
 docs/                ARCHITECTURE, FIRESTORE, DECISIONS, PLAN
 ```
 
@@ -56,8 +57,9 @@ docs/                ARCHITECTURE, FIRESTORE, DECISIONS, PLAN
   (`*-firebase-adminsdk-*.json`), `.env*`, `local.properties`, `key.properties`, `*.jks`/`*.keystore`.
   Key admin disimpan di luar repo dan dipakai lewat `GOOGLE_APPLICATION_CREDENTIALS`.
 - Project Firebase aktif: **faith-514ef**. Jangan memakai project lain.
-- Jangan mengubah `firestore.rules` tanpa menjalankan rules test di emulator. Rules test belum ada,
-  jadi buat dulu test-nya sebelum mengubah rules.
+- Jangan mengubah `firestore.rules` tanpa menjalankan rules test di emulator
+  (`cd tools/rules-test && npm test`, butuh Java 21). Koleksi yang belum punya test: tulis dulu
+  test-nya sebelum mengubah rules-nya.
 - Jangan memanggil API AI berbayar tanpa izin. Gateway AI direncanakan lewat Cloudflare Worker,
   bukan klien langsung.
 

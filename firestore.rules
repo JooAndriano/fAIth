@@ -46,7 +46,12 @@ service cloud.firestore {
 
     // --- Public read-only content ---
 
-    match /daily_devotionals/{id} { allow read: if true; allow write: if false; }
+    // Devotionals are seeded via the Admin SDK (tools/seed). Clients only read published ones;
+    // queries must filter on status == 'published'.
+    match /devotionals/{id} {
+      allow read: if isAuthed() && resource.data.status == 'published';
+      allow write: if false;
+    }
     match /featured_studies/{id} { allow read: if true; allow write: if false; }
     match /reading_plans/{id} { allow read: if true; allow write: if false; }
     match /topics/{id} { allow read: if true; allow write: if false; }

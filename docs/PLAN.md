@@ -52,10 +52,12 @@ listener ke koleksi besar, offline persistence aktif.
       `docs/FIRESTORE.md` bagian "Seed renungan" dan `tools/seed/README.md`
 - [ ] Cek isi `devotionals` di `faith-514ef` (Firebase Console): apakah seed sungguhan sudah pernah
       dijalankan belum tercatat di repo. Saat ini baru `day-001` yang `published` (`day-002`–`004` draft)
-- [ ] Rules belum membuka koleksi `devotionals` (rules masih memakai `daily_devotionals`), jadi app
-      belum bisa membaca hasil seed. Lihat "Masalah yang diketahui" di `docs/FIRESTORE.md`
-- [ ] Audit skema Firestore terhadap layar Fase 2 (koleksi kurang/berlebih)
-- [ ] Rules + rules test di emulator (user hanya akses miliknya; konten umum read-only;
+- [x] Nama koleksi renungan diseragamkan jadi `devotionals` (rules + index `status`/`dayNumber`);
+      rules test emulator di `tools/rules-test` (published dibaca user login, draft tidak, tulis
+      klien ditolak). **Belum di-deploy.**
+- [ ] Audit skema Firestore terhadap layar Fase 2 (koleksi kurang/berlebih), termasuk memutuskan
+      top-level vs subkoleksi `users/{uid}/...` (lihat tabel ketidakcocokan di `docs/FIRESTORE.md`)
+- [ ] Rules + rules test untuk koleksi lain (user hanya akses miliknya; konten umum read-only;
       field kuota tidak bisa diubah dari client; validasi tipe dan panjang field)
 - [ ] Repository Firestore: profil user, renungan, favorit, jurnal doa
 - [ ] Repository chat: simpan dan baca riwayat (paginasi), balasan masih palsu

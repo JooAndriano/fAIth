@@ -1,6 +1,14 @@
 {
   "indexes": [
     {
+      "collectionGroup": "devotionals",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "status", "order": "ASCENDING" },
+        { "fieldPath": "dayNumber", "order": "ASCENDING" }
+      ]
+    },
+    {
       "collectionGroup": "prayers",
       "queryScope": "COLLECTION",
       "fields": [

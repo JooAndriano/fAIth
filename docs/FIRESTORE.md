@@ -11,37 +11,65 @@ Status "dipakai" = dibaca/ditulis oleh kode saat ini.
 | Koleksi | Akses (rules) | Dipakai? | Field |
 |---|---|---|---|
 | `users/{uid}` | baca/tulis hanya pemilik (`userId == auth.uid`, `uid` == auth.uid); delete ditolak | **ya**, oleh `AuthService.syncUserProfile` | `uid, email, displayName, photoUrl, favoriteVerse?, language ('id'), darkMode (false), dailyMessages (5), usedMessages (0), createdAt, updatedAt` |
-| `devotionals/{day-NNN}` | **tidak ada rule** (kena default deny) | ditulis oleh `tools/seed` | `id, dayNumber, title, verseRef, verseText, body, reflectionQuestions[], prayer, tags[], status, createdAt, updatedAt` |
+| `devotionals/{day-NNN}` | baca: user login, hanya `status == 'published'`; tulis klien ditolak | ditulis oleh `tools/seed`; app belum (Mock) | `id, dayNumber, title, verseRef, verseText, body, reflectionQuestions[], prayer, tags[], status, createdAt, updatedAt` |
 | `prayers/{id}` | pemilik via field `uid` | belum | rencana: `uid, title?, body, tags[], isAnswered, answeredAt?, createdAt, updatedAt` |
 | `chat_history/{id}` | pemilik via field `uid` | belum | rencana: `uid, title?, lastMessage?, messageCount, createdAt, updatedAt` (pesan di subkoleksi `messages`) |
 | `saved_devotionals/{id}` | pemilik via field `uid` | belum | rencana: `uid, devotionalId, note?, createdAt` |
 | `favorite_verses/{id}` | pemilik via field `uid` | belum | rencana: `uid`, ref ayat + kode terjemahan (bukan teks) |
-| `daily_devotionals/{id}` | publik baca, tulis ditolak | belum | skema lama, kemungkinan digantikan `devotionals` (perlu dicek) |
 | `featured_studies`, `reading_plans`, `topics` | publik baca, tulis ditolak | belum | rencana |
 | lainnya | default deny | — | — |
 
 Kolom "rencana" diambil dari skema v1 lama dan belum diverifikasi terhadap layar yang ada.
 Skema final perlu diaudit sebelum repository Firestore dibuat (lihat `docs/PLAN.md`).
 
+### Ketidakcocokan nama koleksi (audit 2026-11-17, belum diputuskan)
+
+Rules/indexes memakai koleksi top-level dengan field `uid`; rencana skema v1 memakai subkoleksi di
+bawah `users/{uid}`. Diputuskan saat langkah "Audit skema" Fase 3.
+
+| Data | Rules / indexes sekarang | Rencana skema v1 |
+|---|---|---|
+| Doa | `prayers` (top-level) | `users/{uid}/prayers` |
+| Favorit | `favorite_verses` (top-level, tanpa index) | `users/{uid}/favorites` |
+| Chat | `chat_history` (top-level; subkoleksi `messages` belum dibuka rules) | `users/{uid}/chats/{chatId}/messages` |
+| Study | `featured_studies`, `reading_plans`, `topics` | `studyPlans` |
+| Renungan tersimpan | `saved_devotionals` | tidak ada |
+
 ## Rules (`firestore.rules`)
 
 - Data privat: pemilik ditentukan oleh field `uid` di dokumen (`resource.data.uid` /
   `request.resource.data.uid`), kecuali `users`, yang memakai ID dokumen.
 - Konten publik: hanya bisa dibaca, dan ditulis lewat Admin SDK (seed).
+- `devotionals`: hanya user login, hanya dokumen `status == 'published'`. Rules bukan filter, jadi
+  query app **wajib** `where('status', '==', 'published')` (biasanya + `orderBy('dayNumber')`, memakai
+  index di bawah); query tanpa filter itu ditolak seluruhnya.
 - Default: semua ditolak.
-- **Belum ada rules test dan konfigurasi emulator** di `firebase.json`. Perubahan rules wajib disertai
-  rules test begitu infrastrukturnya ada.
+
+### Rules test (`tools/rules-test`)
+
+Berjalan di emulator lokal dengan project `demo-faith`, jadi tidak pernah menyentuh `faith-514ef`.
+Butuh Java 21 (`JAVA_HOME`) dan firebase-tools. Konfigurasi emulator ada di `firebase.json`
+(Firestore di `127.0.0.1:8080`). Perubahan rules wajib disertai test yang lulus.
+
+```sh
+cd tools/rules-test
+npm install
+npm test        # firebase emulators:exec --only firestore "node --test"
+```
+
+Cakupan saat ini hanya `devotionals`: published bisa dibaca user login; draft tidak; user anonim
+tidak; query tanpa filter status ditolak; create/update/delete dari klien ditolak; `daily_devotionals`
+(nama lama) tertutup. Koleksi lain belum dites.
 
 ### Masalah yang diketahui (perlu diperbaiki, belum diubah)
-1. Seed menulis ke `devotionals`, tetapi rules hanya membuka `daily_devotionals`, sehingga app belum bisa
-   membaca renungan hasil seed.
-2. Rules `users` membolehkan klien menulis `dailyMessages`/`usedMessages` (kuota). Seharusnya
+1. Rules `users` membolehkan klien menulis `dailyMessages`/`usedMessages` (kuota). Seharusnya
    field ini tidak bisa ditulis klien. Nilai default `dailyMessages: 5` juga berbeda dengan keputusan
    25 pesan/hari (lihat `docs/DECISIONS.md`).
 
 ## Indexes (`firestore.indexes.json`)
 
 Composite, scope COLLECTION:
+- `devotionals`: `status` ASC, `dayNumber` ASC
 - `prayers`: `uid` ASC, `createdAt` DESC
 - `chat_history`: `uid` ASC, `updatedAt` DESC
 - `saved_devotionals`: `uid` ASC, `createdAt` DESC
@@ -73,4 +101,5 @@ Kredensial **hanya** lewat `GOOGLE_APPLICATION_CREDENTIALS` yang menunjuk ke key
 Skrip menolak key yang berada di dalam repo atau yang `project_id`-nya tidak cocok. Detail lengkap ada
 di `tools/seed/README.md`.
 
-Emulator: `firebase emulators:start --only firestore` butuh Java 21 (perlu dicek di mesin dev).
+Emulator: `firebase emulators:start --only firestore` (butuh Java 21), lalu
+`node seed-devotionals.mjs --emulator`.
