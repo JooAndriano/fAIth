@@ -6,7 +6,7 @@
 **Status:** Draft
 
 ## Acceptance Criteria
-- `Devotional{id, date, title, verseText, verseRef, reflection[], prayer, challenge, category}`
-- List newest first with date and category
--  detail shows verse, Refleksi, Doa, Tantangan Hari Ini
+- `Devotional{id, dayNumber, title, verseRef, verseText, body, reflectionQuestions[], prayer, tags[], status}` (D7); mock exposes only `published`
+- List by day number (newest first) with first tag
+-  detail shows verse, body, Pertanyaan Refleksi, Doa
 - Share button shows "Segera hadir" snackbar

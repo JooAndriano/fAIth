@@ -10,3 +10,4 @@
 -  few chapters have data, others show empty state)
 - Picker: book list grouped PL/PB, then chapter grid
 - Reader: numbered verses, previous/next chapter, readable at large text
+- Translation picker (AYT/KJV/WEB dummy); repository calls take a translation code (D8)

@@ -3,7 +3,7 @@ intent: 002-static-ui
 phase: inception
 status: draft
 created: 2026-11-16T14:45:00Z
-updated: 2026-11-16T14:45:00Z
+updated: 2026-11-17T04:00:00Z
 ---
 
 # Requirements — Intent 002: Static UI
@@ -52,6 +52,7 @@ Firestore, AI (Gemini via Functions), maps and notifications stay out of scope.
 
 ### FR-3: Devotional (Renungan)
 - List of daily devotionals (newest first) and detail: date, title, verse, reflection, prayer, today's challenge.
+- Detail shows verse (text + reference), body, reflection questions and prayer (Phase 3 content format, D7).
 - Bookmark toggle (in-memory) and **Saved Devotionals** list with empty state; share button shows "Segera hadir".
 - **Priority**: Must
 
@@ -59,6 +60,7 @@ Firestore, AI (Gemini via Functions), maps and notifications stay out of scope.
 - Study tab: search field (filters dummy books/topics), Today's Reading, Featured Study, Related Passages, Biblical Timeline.
 - Reader: pick **book → chapter**, read verses, previous/next chapter, tap a verse to **mark** it
   (highlight + add to Favorite Verses). Dummy content limited to a few books/chapters.
+- Translation picker (dummy codes AYT/KJV/WEB); `BibleRepository` takes a translation code (D8).
 - **Priority**: Must
 
 ### FR-5: Prayer Journal (Doa)
@@ -68,6 +70,7 @@ Firestore, AI (Gemini via Functions), maps and notifications stay out of scope.
 
 ### FR-6: Favorite Verses (Ayat Favorit)
 - List, add, edit, delete, set default (default feeds Home encouragement card), empty state.
+- A favorite stores a **reference** (book:chapter:verse[-verse] + translation code); text is resolved via `BibleRepository` (D8).
 - **Priority**: Must
 
 ### FR-7: Settings & Profile (Pengaturan)
@@ -77,6 +80,8 @@ Firestore, AI (Gemini via Functions), maps and notifications stay out of scope.
 - Links: Saved Devotionals, Favorite Verses, Spiritual Preferences, legal items ("Segera hadir").
 - Profile screen: name/email (read-only in this phase), delete-account danger zone with confirm dialog (no-op + info).
 - Logout via the existing `AuthController.signOut()`.
+- About screen: app version, "gratis tanpa iklan/langganan", placeholder section for Bible translation attribution
+  (real AYT/YLSA text added in Phase 3) (D10).
 - **Priority**: Must
 
 ### FR-8: Nearby Churches (Gereja Terdekat)
@@ -101,7 +106,7 @@ Firestore, AI (Gemini via Functions), maps and notifications stay out of scope.
 | Quality | `flutter analyze` clean and `flutter test` green per bolt; one commit per bolt. |
 
 ## Constraints & Assumptions
-- Built on branch `feat/phase-2-static-ui` from `chore/phase-1-cleanup` (feature-first structure).
+- Built directly on branch `develop` (all earlier branches fast-forwarded into it on 2026-11-17).
 - Firebase project migration (Phase 1 step E) still pending; Auth keeps using the current config meanwhile.
 - Dummy Bible text: short placeholder samples only; the real Bible source + licensing (e.g. LAI TB is copyrighted)
   is decided in a later phase.
@@ -115,3 +120,7 @@ Firestore, AI (Gemini via Functions), maps and notifications stay out of scope.
 | D4 | Material Icons instead of Lucide | Avoid new dependency |
 | D5 | Fix prototype bugs instead of porting them (back stack, prayer sheet from All Prayers, inert buttons → "Segera hadir") | Behavior quality |
 | D6 | Add bolt 0 "ui-foundation" before Home | Shared tokens/widgets/shell needed by all screens |
+| D7 | `Devotional` uses the Phase 3 content format: `id, dayNumber, title, verseRef, verseText, body, reflectionQuestions[], prayer, tags[], status`; prototype "Tantangan Hari Ini" replaced by reflection questions | Phase 3 swaps Mock→Firestore without model change |
+| D8 | Bible read through `BibleRepository` keyed by translation code (AYT/KJV/WEB); favorites store a verse reference + translation code, not the text | Matches Phase 3 bundled-asset Bible; TB/BIS/TL never used |
+| D9 | `ChatRepository` history paginated from the start (page size 20, cursor) | Phase 3 Firestore pagination without controller change |
+| D10 | About screen skeleton in Settings with attribution placeholder | AYT/YLSA license text required in Phase 3 |

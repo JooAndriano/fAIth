@@ -1,7 +1,7 @@
 ---
 intent: 002-static-ui
 created: 2026-11-16T14:45:00Z
-updated: 2026-11-16T14:45:00Z
+updated: 2026-11-17T04:00:00Z
 ---
 
 # Inception Log — Intent 002: Static UI
@@ -19,3 +19,10 @@ updated: 2026-11-16T14:45:00Z
   - Chat screen uses hardcoded hex colors (ignores dark mode); navy text low-contrast in dark → handled by theme extension.
   - Existing AppTextStyles hardcode light foreground color → fixed in unit 001.
 - Status: awaiting user approval of requirements, decisions D1–D6, units and bolt plan.
+
+## 2026-11-17T04:00:00Z — Aligned with Phase 3 decisions
+- Phase 3 brief received before Phase 2 was built; user chose to finish Phase 2 first.
+- Added D7–D10 (devotional format, Bible by translation + reference-based favorites, paginated chat history,
+  About skeleton) so Phase 3 only swaps Mock → Firestore implementations.
+- Branch policy: all work directly on `develop` (feat/phase-2-static-ui fast-forwarded into develop).
+- Status: awaiting user approval of D1–D10 before bolt 007.
