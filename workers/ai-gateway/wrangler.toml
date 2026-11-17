@@ -1,0 +1,29 @@
+name = "faith-ai-gateway"
+main = "src/index.ts"
+compatibility_date = "2024-12-01"
+
+# Custom domain (opsional). Aktifkan setelah domain ada di akun Cloudflare yang sama:
+# routes = [
+#   { pattern = "ai.example.com", custom_domain = true },
+# ]
+
+[vars]
+FIREBASE_PROJECT_ID = "faith-514ef"
+TORCONS_BASE_URL = "https://hellpit.torcons.ai"
+# Wajib diisi dengan ID model Torcons yang dipakai. Jangan hardcode model di kode.
+TORCONS_MODEL = "REPLACE_WITH_MODEL_ID"
+# Batas permintaan per pengguna (uid) per hari.
+DAILY_LIMIT_CHAT = "30"
+
+# Secret (JANGAN taruh di file ini / jangan commit):
+#   npx wrangler secret put TORCONS_API_KEY
+# Untuk `wrangler dev`, isi di .dev.vars (lihat .dev.vars.example).
+
+# KV untuk rate limit. Buat namespace lalu ganti id di bawah:
+#   npx wrangler kv namespace create RATE_KV
+#   npx wrangler kv namespace create RATE_KV --preview
+# Salin "id" (dan "preview_id") dari output perintah tersebut.
+[[kv_namespaces]]
+binding = "RATE_KV"
+id = "REPLACE_WITH_KV_NAMESPACE_ID"
+preview_id = "REPLACE_WITH_KV_PREVIEW_ID"

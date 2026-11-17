@@ -1,0 +1,2 @@
+# Salin ke .dev.vars (di-gitignore) untuk `wrangler dev`. Jangan commit .dev.vars.
+TORCONS_API_KEY=isi-di-lokal-saja

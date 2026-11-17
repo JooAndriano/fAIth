@@ -1,0 +1,21 @@
+{
+  "name": "faith-ai-gateway",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Cloudflare Worker: AI gateway between the fAIth app and the AI provider (Torcons, OpenAI-compatible).",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test --experimental-strip-types \"test/**/*.test.ts\""
+  },
+  "dependencies": {
+    "jose": "^5.9.6"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261117.1",
+    "typescript": "^5.6.3",
+    "wrangler": "^4.164.0"
+  }
+}
