@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 
 enum DevotionalStatus { draft, published }
 
-/// One daily devotional, in the Phase 3 content format (decision D7).
+/// One daily devotional, in the Phase 3 content format (see docs/DECISIONS.md).
 ///
 /// [verseText] is quoted from the Bible asset, never written by AI.
 @immutable

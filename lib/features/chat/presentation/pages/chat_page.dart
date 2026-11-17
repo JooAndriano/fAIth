@@ -1,7 +1,7 @@
 import 'package:faith_mobile/shared/widgets/state_views.dart';
 import 'package:flutter/material.dart';
 
-/// Tanya fAIth tab. Built in bolt 009-chat.
+/// Tanya fAIth tab. Placeholder until the chat screen is built.
 class ChatPage extends StatelessWidget {
   const ChatPage({super.key});
 

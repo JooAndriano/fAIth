@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 /// Pengaturan tab.
 ///
 /// Interim version: lists every sub-screen so navigation can be checked on device.
-/// Replaced by the real settings screen in bolt 014-settings-profile.
+/// Replaced by the real settings screen later in Phase 2.
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
 

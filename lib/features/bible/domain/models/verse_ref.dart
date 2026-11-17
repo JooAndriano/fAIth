@@ -5,7 +5,7 @@ import 'bible_book.dart';
 /// Reference to one verse or a verse range within a single chapter.
 ///
 /// Stored as a key `BOOK:chapter:verse[-verseEnd]` (e.g. `PSA:23:1`, `PHP:4:6-7`),
-/// never with the verse text (decision D8).
+/// never with the verse text (see docs/DECISIONS.md).
 @immutable
 class VerseRef {
   const VerseRef(this.bookId, this.chapter, this.verseStart, [this.verseEnd])

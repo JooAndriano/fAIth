@@ -2,7 +2,7 @@ import 'package:faith_mobile/features/bible/domain/models/verse_ref.dart';
 import 'package:flutter/foundation.dart';
 
 /// A verse the user saved. Stores the reference and translation code only;
-/// the text is resolved through `BibleRepository` (decision D8).
+/// the text is resolved through `BibleRepository` (see docs/DECISIONS.md).
 @immutable
 class FavoriteVerse {
   const FavoriteVerse({

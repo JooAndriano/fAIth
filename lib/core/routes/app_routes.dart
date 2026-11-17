@@ -31,7 +31,7 @@ abstract final class AppRoutes {
 
   static const String notFound = '/not-found';
 
-  /// Screens not built yet, with their titles. Each later bolt replaces its entry.
+  /// Screens not built yet, with their titles. Remove an entry once its screen exists.
   static const Map<String, String> _pendingScreens = {
     devotional: 'Renungan Harian',
     savedDevotionals: 'Renungan Tersimpan',

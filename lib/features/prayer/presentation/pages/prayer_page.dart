@@ -1,7 +1,7 @@
 import 'package:faith_mobile/shared/widgets/state_views.dart';
 import 'package:flutter/material.dart';
 
-/// Doa (prayer journal) tab. Built in bolt 012-prayer-journal.
+/// Doa (prayer journal) tab. Placeholder until the prayer journal is built.
 class PrayerPage extends StatelessWidget {
   const PrayerPage({super.key});
 

@@ -1,7 +1,7 @@
 import 'package:faith_mobile/shared/widgets/state_views.dart';
 import 'package:flutter/material.dart';
 
-/// Alkitab tab. Built in bolt 011-bible-study.
+/// Alkitab tab. Placeholder until the Bible screens are built.
 class BiblePage extends StatelessWidget {
   const BiblePage({super.key});
 

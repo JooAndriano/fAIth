@@ -10,7 +10,7 @@ void showComingSoon(BuildContext context, [String? feature]) {
     );
 }
 
-/// Placeholder screen for routes whose screen is delivered by a later bolt.
+/// Placeholder screen for routes whose screen is not built yet.
 class ComingSoonPage extends StatelessWidget {
   const ComingSoonPage({super.key, required this.title});
 
