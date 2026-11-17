@@ -27,10 +27,8 @@ desktop.ini
 .swiftpm/
 migrate_working_dir/
 
-# --- fAIth_web (React/Vite prototype) ---
+# --- Node (tools/seed) ---
 node_modules/
-fAIth_web/dist/
-fAIth_web/.vite/
 
 # --- Flutter / Dart / Pub ---
 **/doc/api/
