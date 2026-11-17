@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// Design tokens: colors (mirrors `fAIth_web/src/styles/theme.css`).
+/// Design tokens: colors (from the web prototype theme, see git tag `archive/web-prototype`).
 abstract final class AppColors {
   // Base palette (web tokens)
   static const Color navy = Color(0xFF1A2332); // --navy/--foreground/--primary (light)

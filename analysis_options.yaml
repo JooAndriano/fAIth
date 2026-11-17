@@ -1,5 +1,5 @@
-# Static analysis config for fAIth_mobile.
-# See memory-bank/standards/coding-standard.md (max line length 100).
+# Static analysis config for the fAIth Flutter app.
+# Coding conventions: docs/ARCHITECTURE.md (max line length 100).
 include: package:flutter_lints/flutter.yaml
 
 analyzer:

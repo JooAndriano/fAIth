@@ -5,7 +5,8 @@
 *.iws
 .vscode/
 *.swp
-.history/
+.history
+.atom/
 
 # --- OS ---
 .DS_Store
@@ -17,10 +18,47 @@ desktop.ini
 .env
 .env.*
 
+# --- Misc ---
+*.class
+*.pyc
+.build/
+.buildlog/
+.svn/
+.swiftpm/
+migrate_working_dir/
+
 # --- fAIth_web (React/Vite prototype) ---
 node_modules/
 fAIth_web/dist/
 fAIth_web/.vite/
+
+# --- Flutter / Dart / Pub ---
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+/coverage/
+**/ephemeral/
+**/GeneratedPluginRegistrant.*
+
+# Symbolication / obfuscation
+app.*.symbols
+app.*.map.json
+
+# Android Studio build artifacts
+/android/app/debug
+/android/app/profile
+/android/app/release
+
+# --- Secrets / local machine config ---
+**/android/local.properties
+**/android/key.properties
+*.jks
+*.keystore
 
 # --- Firebase CLI ---
 .firebase/
