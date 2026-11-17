@@ -68,3 +68,4 @@ ui-debug.log
 
 # --- Claude Code (personal settings) ---
 .claude/settings.local.json
+.dev.vars
