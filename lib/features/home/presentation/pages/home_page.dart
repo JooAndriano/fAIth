@@ -1,6 +1,7 @@
 import 'package:faith_mobile/core/routes/app_routes.dart';
 import 'package:faith_mobile/core/theme/app_spacing.dart';
 import 'package:faith_mobile/core/theme/faith_colors.dart';
+import 'package:faith_mobile/features/ai/presentation/widgets/ai_debug_fab.dart';
 import 'package:faith_mobile/features/bible/domain/models/passage.dart';
 import 'package:faith_mobile/features/home/presentation/controllers/home_controller.dart';
 import 'package:faith_mobile/features/home/presentation/widgets/home_sections.dart';
@@ -8,6 +9,7 @@ import 'package:faith_mobile/features/shell/presentation/controllers/shell_contr
 import 'package:faith_mobile/shared/widgets/gradient_header.dart';
 import 'package:faith_mobile/shared/widgets/highlight_card.dart';
 import 'package:faith_mobile/shared/widgets/state_views.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -21,6 +23,7 @@ class HomePage extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: kDebugMode ? const AiDebugFab() : null,
       body: RefreshIndicator(
         onRefresh: controller.load,
         child: ListView(
